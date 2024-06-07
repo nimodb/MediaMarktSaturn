@@ -1,0 +1,65 @@
+###################################################
+############ Register a new user ##################
+###################################################
+POST http://127.0.0.1:8000/register/
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "testpassword",
+  "email": "testuser@example.com"
+}
+
+
+###################################################
+################ Obtain a token ###################
+###################################################
+POST http://127.0.0.1:8000/api-token-auth/
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "testpassword"
+}
+
+
+###################################################
+###### Test Access for Unauthenticated Users ######
+###################################################
+
+### List all security records (should work for unauthenticated users)
+GET http://127.0.0.1:8000/api/security-records/
+
+### Retrieve security information by ID (should work for unauthenticated users)
+GET http://127.0.0.1:8000/api/security-records/5/
+
+
+
+#################################################
+###### Test Access for Authenticated Users ######
+#################################################
+
+# Create a new security record (requires authentication)
+POST http://127.0.0.1:8000/api/security-records/
+Content-Type: application/json
+Authorization: Token <token>
+
+{
+  "name": "New Security Record",
+  "description": "Description of the new security record."
+}
+
+
+### Update security information (requires authentication)
+PUT http://127.0.0.1:8000/api/security-records/1/
+Content-Type: application/json
+Authorization: Token <token>
+
+{
+  "name": "Updated Security Record",
+  "description": "Updated description of the security record."
+}
+
+### Delete a security record (requires authentication)
+DELETE http://127.0.0.1:8000/api/security-records/1/
+Authorization: Token <token>

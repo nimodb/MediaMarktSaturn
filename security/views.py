@@ -1,10 +1,16 @@
-from rest_framework import viewsets, status, permissions
+from rest_framework import generics, viewsets, status, permissions
 from rest_framework.response import Response
+from django.contrib.auth.models import User
 from .models import SecurityRecord
-from .serializers import SecurityRecordSerializer
+from .serializers import SecurityRecordSerializer, UserSerializer
 
 
 # Create your views here.
+class UserCreate(generics.CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+
 class SecurityRecordViewSet(viewsets.ModelViewSet):
     queryset = SecurityRecord.objects.all()
     serializer_class = SecurityRecordSerializer

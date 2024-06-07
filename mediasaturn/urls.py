@@ -18,7 +18,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from security.views import SecurityRecordViewSet
+from rest_framework.authtoken import views as authtoken_views
+from security.views import SecurityRecordViewSet, UserCreate
 
 router = routers.DefaultRouter()
 router.register(r"security-records", SecurityRecordViewSet)
@@ -26,4 +27,6 @@ router.register(r"security-records", SecurityRecordViewSet)
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/", include(router.urls)),
+    path("api-token-auth/", authtoken_views.obtain_auth_token),
+    path("register/", UserCreate.as_view(), name="user-create"),
 ]

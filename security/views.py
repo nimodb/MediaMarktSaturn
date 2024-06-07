@@ -1,5 +1,4 @@
-from rest_framework import viewsets
-from rest_framework import status
+from rest_framework import viewsets, status, permissions
 from rest_framework.response import Response
 from .models import SecurityRecord
 from .serializers import SecurityRecordSerializer
@@ -9,6 +8,7 @@ from .serializers import SecurityRecordSerializer
 class SecurityRecordViewSet(viewsets.ModelViewSet):
     queryset = SecurityRecord.objects.all()
     serializer_class = SecurityRecordSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)

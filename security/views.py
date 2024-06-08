@@ -14,7 +14,7 @@ class UserCreate(generics.CreateAPIView):
 class SecurityRecordViewSet(viewsets.ModelViewSet):
     queryset = SecurityRecord.objects.all()
     serializer_class = SecurityRecordSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.IsAuthenticated]
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)

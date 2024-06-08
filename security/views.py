@@ -12,7 +12,7 @@ class UserCreate(generics.CreateAPIView):
 
 
 class SecurityRecordViewSet(viewsets.ModelViewSet):
-    queryset = SecurityRecord.objects.all()
+    queryset = SecurityRecord.objects.defer("description").all()
     serializer_class = SecurityRecordSerializer
     permission_classes = [permissions.IsAuthenticated]
 

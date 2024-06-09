@@ -1,10 +1,12 @@
-version: '3.9'
+version: '3.11'
 
 services:
-  web:
+  app:
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/app
     ports:
       - "8000:8000"
+    image: app:app
+    container_name: media_markt_saturn_container
+    command: python manage.py runserver 0.0.0.0:8000

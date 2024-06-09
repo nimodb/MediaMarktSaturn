@@ -16,7 +16,9 @@
     - [Test Cases](#test-cases)
         - [Test Access for Unauthenticated Users](#test-access-for-unauthenticated-users)
         - [Test Access for Authenticated Users](#test-access-for-authenticated-users)
-
+6. [API Documentation](#api-documentation)
+    - [Swagger UI](#swagger-ui)
+    - [Redoc](#redoc)
 
 
 ## Introduction
@@ -233,3 +235,17 @@ These test cases ensure that authenticated users can perform actions on the API 
 - <code>test_create_record_authenticated</code>: Checks that authenticated users can create a new security record.
 - <code>test_update_record_authenticated</code>: Checks that authenticated users can update a security record.
 - <code>test_delete_record_authenticated</code>: Checks that authenticated users can delete a security record.
+
+
+## API Documentation
+The API endpoints are documented using *'drf-spectacular'*. You can access the API documentation in two format:
+
+### Swagger UI
+Swagger UI provides an interactive interface for exploring the API. You can access it at:
+- [Swagger UI](http://127.0.0.1:8000/api/docs/swagger/)
+
+### Redoc 
+Redoc provides a different view of the API documentation. You can access it at:
+- [Redoc](http://127.0.0.1:8000/api/docs/redoc/)
+
+*Both interfaces allow you to explore the available endpoints, view request and response schemas, and interact with the API directly from the documentation.*

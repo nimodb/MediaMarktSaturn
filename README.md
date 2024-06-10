@@ -20,6 +20,7 @@
     - [Swagger UI](#swagger-ui)
     - [Redoc](#redoc)
 7. [Cloud Deployment](#cloud-deployment)
+8. [CI/CD Pipeline with GitHub Actions](#cicd-pipeline-with-github-actions)
 
 
 ## Introduction
@@ -221,22 +222,24 @@ The test cases are organized into two main sections:
 #### Test Access for Unauthenticated Users
 These test cases ensure that unauthenticated users cannot perform certain actions (**CRUD**) on the API endpoints.
 
-- <code>test_list_records_unauthenticated</code>: Checks that unauthenticated users cannot list security records.
-- <code>test_retrieve_record_unauthenticated</code>: Checks that unauthenticated users cannot retrieve a security record by ID.
-- <code>test_create_record_unauthenticated</code>: Checks that unauthenticated users cannot create a new security record.
-- <code>test_update_record_unauthenticated</code>: Checks that unauthenticated users cannot update a security record.
-- <code>test_delete_record_unauthenticated</code>: Checks that unauthenticated users cannot delete a security record.
+- `test_list_records_unauthenticated`: Checks that unauthenticated users cannot list security records.
+- `test_retrieve_record_unauthenticated`: Checks that unauthenticated users cannot retrieve a security record by ID.
+- `test_create_record_unauthenticated`: Checks that unauthenticated users cannot create a new security record.
+- `test_update_record_unauthenticated`: Checks that unauthenticated users cannot update a security record.
+- `test_delete_record_unauthenticated`: Checks that unauthenticated users cannot delete a security record.
 
+*(5 Tests)*
 
 #### Test Access for Authenticated Users
 These test cases ensure that authenticated users can perform actions on the API endpoints after authentication.
 
-- <code>test_list_records_authenticated</code>: Checks that authenticated users can list security records.
-- <code>test_retrieve_record_authenticated</code>: Checks that authenticated users can retrieve a security record by ID.
-- <code>test_create_record_authenticated</code>: Checks that authenticated users can create a new security record.
-- <code>test_update_record_authenticated</code>: Checks that authenticated users can update a security record.
-- <code>test_delete_record_authenticated</code>: Checks that authenticated users can delete a security record.
+- `test_list_records_authenticated`: Checks that authenticated users can list security records.
+- `test_retrieve_record_authenticated`: Checks that authenticated users can retrieve a security record by ID.
+- `test_create_record_authenticated`: Checks that authenticated users can create a new security record.
+- `test_update_record_authenticated`: Checks that authenticated users can update a security record.
+- `test_delete_record_authenticated`: Checks that authenticated users can delete a security record.
 
+*(5 Tests)*
 
 ## API Documentation
 The API endpoints are documented using *'drf-spectacular'*. You can access the API documentation in two format:
@@ -290,3 +293,8 @@ To deploy this project on a Kubernetes:
       ```
   
 5. **Access the Django application using the external IP.**
+
+
+## CI/CD Pipeline with GitHub Actions
+
+This project uses GitHub Actions to automate CI process. The CI/CD pipeline is set up to run tests automatically whenever code changes are pushed to the `main` branch.

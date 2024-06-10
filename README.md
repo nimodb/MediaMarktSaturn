@@ -19,6 +19,7 @@
 6. [API Documentation](#api-documentation)
     - [Swagger UI](#swagger-ui)
     - [Redoc](#redoc)
+7. [Cloud Deployment](#cloud-deployment)
 
 
 ## Introduction
@@ -249,3 +250,43 @@ Redoc provides a different view of the API documentation. You can access it at:
 - [Redoc](http://127.0.0.1:8000/api/docs/redoc/)
 
 *Both interfaces allow you to explore the available endpoints, view request and response schemas, and interact with the API directly from the documentation.*
+
+
+## Cloud Deployment
+
+### ~~Kubernetes Deployment~~
+
+To deploy this project on a Kubernetes: 
+
+1. **For Google Cloud Platform (GKE)**
+    ```bash
+
+    ```
+
+2. **For AWS (EKS)**
+    ```bash
+
+    ```
+
+3. **For Microsoft Azure (AKS)**
+    ```bash
+
+    ```
+
+4. **Verify the deployment and get the external IP of the service:**
+  - Ensure you have *'kubectl'* installed and configured for your cloud provider.
+  - Apply the Development and Service file
+      ```bash
+        kubectl apply -f development.yaml
+        kubectl apply -f service.yaml
+      ```
+  - verify that the pods are running:
+      ```bash
+        kubectl get pods 
+      ```
+  - Get the external IP address of the service:
+      ```bash
+        kubectl get svc SERVICE_NAME
+      ```
+  
+5. **Access the Django application using the external IP.**
